@@ -8,7 +8,7 @@ import { NavBarLateralComponent } from './publico/paginaMaestra/nav-bar-lateral/
 import { FooterComponent } from './publico/paginaMaestra/footer/footer.component';
 import { IndexComponent } from './publico/index/index.component';
 import { Error404Component } from './publico/errors/error404/error404.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,13 +16,10 @@ import { Error404Component } from './publico/errors/error404/error404.component'
     NavBarLateralComponent,
     FooterComponent,
     IndexComponent,
-    Error404Component
+    Error404Component,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

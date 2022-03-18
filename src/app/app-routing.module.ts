@@ -18,6 +18,10 @@ const routes: Routes = [
     loadChildren: () => import('./modulos/parametrizacion/parametrizacion.module').then(m => m.ParametrizacionModule)
   },
   {
+    path: 'seguridad',
+    loadChildren: () => import('./modulos/seguridad/seguridad.module').then(s => s.SeguridadModule)
+  },
+  {
     path: 'mascota',
     loadChildren: () => import('./modulos/mascota/mascota.module').then(ma => ma.MascotaModule)
   },

@@ -6,6 +6,7 @@ import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component'
 import { CerrarsesionComponent } from './cerrarsesion/cerrarsesion.component';
 import { ResetearclaveComponent } from './resetearclave/resetearclave.component';
 import { CambiarclaveComponent } from './cambiarclave/cambiarclave.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { CambiarclaveComponent } from './cambiarclave/cambiarclave.component';
   ],
   imports: [
     CommonModule,
-    SeguridadRoutingModule
+    SeguridadRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SeguridadModule { }
