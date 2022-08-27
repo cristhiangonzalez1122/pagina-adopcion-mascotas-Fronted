@@ -4,6 +4,7 @@ import { SeguridadService } from 'src/app/services/seguridad.service';
 import * as cryptoJS from 'crypto-js';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-iniciarsesion',
   templateUrl: './iniciarsesion.component.html',
@@ -11,30 +12,33 @@ import { Router } from '@angular/router';
 })
 export class IniciarsesionComponent implements OnInit {
   fgValidacion: FormGroup = this.fb.group({
-    correo: ['', [Validators.required, Validators.email]],
-    clave: ['', [Validators.required]],
+    usuario: ['', [Validators.required, Validators.email]],
+    clave: ['', [Validators.required]]
   });
 
-  constructor(
-    private fb: FormBuilder,
-    private securityService: SeguridadService,
-    private router: Router
-  ) {}
+  constructor(private fb: FormBuilder,
+    private servicioSeguridad: SeguridadService,
+    private router: Router) { }
 
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+
+  }
+
 
   IdentificarUsuario() {
-    const usuario = this.fgValidacion.controls['correo'].value;
-    const clave = this.fgValidacion.controls['clave'].value;
-    const claveCifrada = cryptoJS.MD5(clave).toString();
-    this.securityService.Identificar(usuario, claveCifrada).subscribe(
-      (datos: any) => {
-        this.securityService.AlmacenarSesion(datos);
-        this.router.navigate(['/index']);
-      },
-      (error: any) => {
-        alert('datos invalidos');
-      }
-    );
+    let usuario = this.fgValidacion.controls["usuario"].value;
+    let clave = this.fgValidacion.controls["clave"].value;
+    let claveCifrada = cryptoJS.MD5(clave).toString();
+    this.servicioSeguridad.Identificar(usuario, claveCifrada).subscribe((datos: any) => {
+      this.servicioSeguridad.AlmacenarSesion(datos);
+      this.router.navigate(['/']);
+    }, (error: any) => {
+      alert('Datos incorrectos');
+      //ko
+    })
   }
+
+
+
 }

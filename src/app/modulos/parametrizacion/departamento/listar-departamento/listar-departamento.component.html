@@ -1,1 +1,47 @@
-<p>listar-departamento works!</p>
+<div class="table-container">
+  <div class="primary-button">
+    <a
+      class="btn btn-primary"
+      type="submit"
+      routerLink="/parametros/crear-departamento"
+      >Crear Departamento</a
+    >
+  </div>
+  <input type="text" placeholder="insert" class="row 6" />
+  <button class="button search-button" type="submit">Buscar</button>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let d of listadoDepto
+            | paginate: { itemsPerPage: 4, currentPage: pagina }
+        "
+      >
+        <td>{{ d.id }}</td>
+        <td>{{ d.nombre }}</td>
+        <td>
+          <a routerLink="/parametros/editarDepartamento" class="btn btn-primary"
+            >Editar</a
+          >
+          &nbsp;&nbsp;
+          <button type="button" class="btn btn-danger"><a routerLink="/parametros/eliminarDepartamento">Eliminar</a></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls
+    previousLabel="Anterior"
+    nextLabel="Siguiente"
+    screenReaderPaginationLabel="Pagination"
+    screenReaderPageLabel="pagina"
+  >
+  </pagination-controls>
+</div>

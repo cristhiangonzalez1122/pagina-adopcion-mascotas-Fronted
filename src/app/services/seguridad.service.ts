@@ -16,18 +16,18 @@ export class SeguridadService {
     this.verificarSesionActual();
   }
 
-  verificarSesionActual(){
+  verificarSesionActual() {
     const datos = this.obtenerInformacionSesion();
-    if(datos){
+    if (datos) {
       this.refrescarDatosSesion(datos);
     }
   }
 
-  refrescarDatosSesion(datos: ModeloIdentificar){
+  refrescarDatosSesion(datos: ModeloIdentificar) {
     this.datosUsuariosEnSesion.next(datos);
   }
 
-  obtenerDatosUsuarioSesion(){
+  obtenerDatosUsuarioSesion() {
     return this.datosUsuariosEnSesion.asObservable();
   }
 
@@ -69,5 +69,15 @@ export class SeguridadService {
   seHaIniciadoSesion() {
     const datosString = localStorage.getItem('datosSesion');
     return datosString;
+  }
+
+  obtenerToken() {
+    const datosString = localStorage.getItem('datosSesion');
+    if (datosString) {
+      const datos = JSON.parse(datosString);
+      return datos.tk;
+    } else {
+      return '';
+    }
   }
 }

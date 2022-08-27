@@ -1,3 +1,28 @@
-.navbar-brand img{
-  border-radius: 100px;
+.sidenav {
+  width: 70%;
+  min-width: 288px;
+  max-width: 400px;
 }
+
+.brand-logo {
+  padding-left: 20px;
+}
+
+.right {
+  padding-right: 10px;
+}
+
+.sideNav-mobile-container {
+  margin-top: 50px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: aquamarine;
+}
+
+
+.sidenav li a span {
+  display: inline-block;
+  padding-right: 10px;
+}
+

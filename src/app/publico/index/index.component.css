@@ -1,6 +1,31 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-align: center;
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  width: 25%;
+  background-color: aqua;
+
+}
+
+.images-data {
+  display: flex;
+  width: 20vw;
+  height: 25vh;
+  margin: 10px;
+  background-color: brown;
+  border: 1px solid black;
+}
+
+div img {
+  width: 220px;
+
+}
+
+@media(max-width: 600px) {
+  div img {
+    width: 118px;
+
+  }
 }

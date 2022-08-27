@@ -1,3 +1,3 @@
 export namespace GeneralData{
-  export const urlBackend: String = 'http://localhost:3000';
+  export const urlBackend: String = 'http://localhost:3001';
 }

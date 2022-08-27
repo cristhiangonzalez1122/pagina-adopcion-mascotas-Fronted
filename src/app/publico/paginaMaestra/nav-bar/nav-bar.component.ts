@@ -21,4 +21,5 @@ export class NavBarComponent implements OnInit {
         this.seInicioSesion = datos.isLogged;
       });
   }
+
 }

@@ -1,1 +1,12 @@
-<p>crear-departamento works!</p>
+<div class="container-create dpto-form">
+  <form [formGroup]="fgValidador" class="row g-3 needs-validation" (ngSubmit)="GuardarDepto()">
+    <div class="col-md-6 position-relative">
+      <label  for="validationTooltip01" class="form-label">Nombre Departamento</label>
+      <input formControlName="nombre" type="text" class="form-control" id="validationTooltip01" required>
+      <div class="invalid-tooltip">Please provide a valid depto.</div>
+    </div>
+    <div class="col-12">
+      <button [disabled]="!fgValidador.valid" class="btn btn-primary" type="submit">Crear</button>
+    </div>
+  </form>
+</div>
