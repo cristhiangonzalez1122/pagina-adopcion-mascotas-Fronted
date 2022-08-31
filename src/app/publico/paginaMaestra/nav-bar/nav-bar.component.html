@@ -1,13 +1,14 @@
-<nav>
-  <div class="nav-wrapper color">
-    <a href="#!" class="brand-logo">Logo</a>
+<nav class="main">
+  <div class="nav-wrapper green">
+    <a href="/index" class="brand-logo"><img src="../../../../assets/images/pet.png" alt=""></a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <li *ngIf="seInicioSesion"><a href="/parametros/crear-departamento">Departamento</a></li>
-      <li *ngIf="seInicioSesion"><a href="badges.html">Usuario</a></li>
-      <li *ngIf="seInicioSesion"><a href="collapsible.html">Solicitar Adopoción</a></li>
-      <li *ngIf="!seInicioSesion"><a href="seguridad/iniciar-sesion">Login</a></li>
-      <li *ngIf="seInicioSesion"><a href="seguridad/cerrarSesion">LogOut</a></li>
+      <li *ngIf="seInicioSesion"><a routerLink="/parametros/listar-departamento">Departamento</a></li>
+      <li *ngIf="seInicioSesion"><a routerLink="/parametros/listar-ciudad">Ciudad</a></li>
+      <li *ngIf="seInicioSesion"><a routerLink="badges.html">Usuario</a></li>
+      <li *ngIf="seInicioSesion"><a routerLink="collapsible.html">Solicitar Adopoción</a></li>
+      <li *ngIf="!seInicioSesion"><a routerLink="seguridad/iniciar-sesion">Login</a></li>
+      <li *ngIf="seInicioSesion"><a routerLink="seguridad/cerrarSesion">LogOut</a></li>
     </ul>
   </div>
 </nav>
@@ -15,7 +16,8 @@
 
 <ul class="sidenav" id="mobile-demo">
   <div class="sideNav-mobile-container">
-    <li *ngIf="seInicioSesion"><a href="/parametros/crear-departamento">Departamento</a></li>
+    <li *ngIf="seInicioSesion"><a href="/parametros/listar-departamento">Departamento</a></li>
+    <li *ngIf="seInicioSesion"><a href="/parametros/listar-ciudad">Ciudad</a></li>
     <li *ngIf="seInicioSesion"><a href="badges.html">Usuario</a></li>
     <li *ngIf="seInicioSesion"><a href="collapsible.html">Solicitar Adopoción</a></li>
     <li *ngIf="!seInicioSesion"><a href="/seguridad/iniciar-sesion">Login</a></li>
@@ -24,9 +26,3 @@
 
 </ul>
 
-<ul id="dropdown2" class="dropdown-content">
-  <li><a href="#!">one<span class="badge">1</span></a></li>
-  <li><a href="#!">two<span class="new badge">1</span></a></li>
-  <li><a href="#!">three</a></li>
-</ul>
-<a class="btn dropdown-trigger" href="#!" data-target="dropdown2">Dropdown<i class="material-icons right">arrow_drop_down</i></a>

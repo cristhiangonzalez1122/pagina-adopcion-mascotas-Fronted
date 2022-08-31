@@ -8,7 +8,7 @@ import { DepartamentoService } from 'src/app/services/departamento.service';
   styleUrls: ['./listar-departamento.component.css'],
 })
 export class ListarDepartamentoComponent implements OnInit {
-  pagina: number = 1;
+  page: number = 1;
   listadoDepto: ModeloDatosDepartamento[] = [];
 
   constructor(private deptoService: DepartamentoService) {}
@@ -19,9 +19,26 @@ export class ListarDepartamentoComponent implements OnInit {
 
   ObtenerListaDepto() {
     this.deptoService
-      .obtenerRegistros()
+      .ListarRegistros()
       .subscribe((data: ModeloDatosDepartamento[]) => {
         this.listadoDepto = data;
       });
+  }
+
+  VerificarEliminacion(id?: number, nombre?: String){
+    if(window.confirm("Relamente desea eliminar el registro de " + nombre)){
+      let modelo = new ModeloDatosDepartamento();
+      modelo.id = id;
+      modelo.nombre = nombre;
+      this.deptoService.EliminarRegistro(modelo).subscribe(
+        (datos) =>{
+          alert("El registro " + nombre + " ha sido eliminado correctamente");
+          this.listadoDepto = this.listadoDepto.filter(x => x.id != id);
+        },
+        (error) =>{
+          alert("Error eliminando el registro " + nombre)
+        }
+      );
+    }
   }
 }

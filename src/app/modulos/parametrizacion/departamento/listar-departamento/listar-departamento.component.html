@@ -22,22 +22,21 @@
       <tr
         *ngFor="
           let d of listadoDepto
-            | paginate: { itemsPerPage: 4, currentPage: pagina }
-        "
-      >
+            | paginate: { itemsPerPage: 4, currentPage: page }">
         <td>{{ d.id }}</td>
         <td>{{ d.nombre }}</td>
         <td>
-          <a routerLink="/parametros/editarDepartamento" class="btn btn-primary"
+          <a routerLink="/parametros/editar-departamento/{{ d.id }}" class="btn btn-primary"
             >Editar</a
           >
           &nbsp;&nbsp;
-          <button type="button" class="btn btn-danger"><a routerLink="/parametros/eliminarDepartamento">Eliminar</a></button>
+          <button type="button" class="btn btn-danger"><a (click)="VerificarEliminacion(d.id)">Eliminar</a></button>
         </td>
       </tr>
     </tbody>
   </table>
-  <pagination-controls
+<pagination-controls
+    (pageChange)="page = $event"
     previousLabel="Anterior"
     nextLabel="Siguiente"
     screenReaderPaginationLabel="Pagination"

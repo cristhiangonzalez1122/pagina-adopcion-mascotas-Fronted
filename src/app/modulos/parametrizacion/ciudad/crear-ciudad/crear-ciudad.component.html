@@ -1,1 +1,19 @@
-<p>crear-ciudad works!</p>
+<div class="container-create dpto-form">
+  <form [formGroup]="fgValidador" class="row g-3 needs-validation" (ngSubmit)="GuardarCiudad()">
+    <div class="col-md-6 position-relative">
+      <label for="validationTooltip01" class="form-label">Nombre de la Ciudad</label>
+      <input formControlName="nombre" type="text" class="form-control" id="validationTooltip01" required>
+      <div class="invalid-tooltip">Please provide a valid City.</div>
+    </div>
+    <div class="col-md-6 position-relative">
+      <label class="active">Seleccionar departamento</label>
+      <select formControlName="departamentoId" class="browser-default">
+        <option *ngFor="let d of deptoListado" value="{{d.id}}">{{ d.nombre }}</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <button [disabled]="!fgValidador.valid" class="btn btn-primary" type="submit">Crear</button>
+    </div>
+    <a routerLink="/parametros/listar-departamento" type="button">Cancelar</a>
+  </form>
+</div>

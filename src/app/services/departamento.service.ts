@@ -18,60 +18,43 @@ export class DepartamentoService {
     this.token = this.securityService.obtenerToken();
   }
 
-  obtenerRegistros(): Observable<ModeloDatosDepartamento[]> {
-    return this.http.get<ModeloDatosDepartamento[]>(
-      `${this.url}/departamentos/`
-    );
-  }
-
-  BuscarRegistro(id: number): Observable<any> {
-    return this.http.get<ModeloDatosDepartamento>(
-      `${this.url}/departamentos/${id}`,
-      {
-        headers: new HttpHeaders({
-          Authorization: `Bearer ${this.token}`,
-        }),
-      }
-    );
-  }
-
-  guardarRegistro(
-    modelo: ModeloDatosDepartamento
-  ): Observable<ModeloDatosDepartamento> {
-    return this.http.post<ModeloDatosDepartamento>(
-      `${this.url}/departamentos`,
-      {
-        nombre: modelo.nombre,
-      },
-      {
-        headers: new HttpHeaders({
-          Authorization: `Bearer ${this.token}`,
-        }),
-      }
-    );
-  }
-
-  ActualizarRegistro(
-    modelo: ModeloDatosDepartamento
-  ): Observable<ModeloDatosDepartamento> {
-    return this.http.put<ModeloDatosDepartamento>(
-      `${this.url}/${modelo.id}`,
-      modelo,
-      {
-        headers: new HttpHeaders({
-          Authorization: `Bearer ${this.token}`,
-        }),
-      }
-    );
-  }
-
-  EliminarRegistro(
-    modelo: ModeloDatosDepartamento
-  ): Observable<ModeloDatosDepartamento> {
-    return this.http.delete(`${this.url}/productos/${modelo.id}`, {
+  ListarRegistros(): Observable<ModeloDatosDepartamento[]> {
+    return this.http.get<ModeloDatosDepartamento[]>(`${this.url}/departamentos/`, {
       headers: new HttpHeaders({
-        Authorization: `Bearer ${this.token}`,
-      }),
+      })
+    });
+  }
+
+  BuscarRegistro(id: number): Observable<ModeloDatosDepartamento> {
+    return this.http.get<ModeloDatosDepartamento>(`${this.url}/departamentos/${id}`, {
+      headers: new HttpHeaders({
+      })
+    });
+  }
+
+  GuardarRegistro(modelo: ModeloDatosDepartamento): Observable<ModeloDatosDepartamento> {
+    return this.http.post<ModeloDatosDepartamento>(`${this.url}/departamentos`, {
+      nombre: modelo.nombre
+    }, {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer ${this.token}`
+      })
+    });
+  }
+
+  ActualizarRegistro(modelo: ModeloDatosDepartamento): Observable<ModeloDatosDepartamento> {
+    return this.http.put<ModeloDatosDepartamento>(`${this.url}/departamentos/${modelo.id}`, modelo, {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer ${this.token}`
+      })
+    });
+  }
+
+  EliminarRegistro(modelo: ModeloDatosDepartamento): Observable<any> {
+    return this.http.delete<any>(`${this.url}/departamentos/${modelo.id}`, {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer ${this.token}`
+      })
     });
   }
 }

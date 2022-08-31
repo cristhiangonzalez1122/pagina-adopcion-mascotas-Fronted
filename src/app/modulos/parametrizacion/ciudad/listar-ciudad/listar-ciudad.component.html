@@ -1,1 +1,40 @@
-<p>listar-ciudad works!</p>
+<div class="table-container">
+  <h3>Lista de Ciudades</h3>
+  <div class="search-container">
+    <input type="text" placeholder="Buscar ciudad" class="row 6" />
+    <button class="button search-button" type="submit" >Buscar</button>
+  </div>
+  <div class="table--container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Departamento</th>
+        <th>Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="
+          let d of listadoCiudad
+            | paginate: { itemsPerPage: 4, currentPage: page }">
+        <td>{{ d.id }}</td>
+        <td>{{ d.nombre }}</td>
+        <td>{{ d.departamento?.nombre }}</td>
+        <td class="buttons-action">
+          <a routerLink="/parametros/editar-ciudad/{{ d.id }}" class="btn btn-secondary"><i class="small material-icons">edit</i></a>
+          &nbsp;&nbsp;
+          <button type="button" class="btn btn-danger"><a (click)="VerificarEliminacion(d.id)"><i class="small material-icons">delete</i></a></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"
+    screenReaderPaginationLabel="Pagination" screenReaderPageLabel="pagina">
+  </pagination-controls>
+  <div class="primary-button">
+    <a class="btn btn-primary" type="submit" routerLink="/parametros/crear-ciudad">Crear <span><i class="large material-icons">add_circle_outline</i></span></a>
+  </div>
+</div>
+

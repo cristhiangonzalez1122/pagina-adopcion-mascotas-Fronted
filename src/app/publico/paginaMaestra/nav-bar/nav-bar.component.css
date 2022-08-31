@@ -4,14 +4,6 @@
   max-width: 400px;
 }
 
-.brand-logo {
-  padding-left: 20px;
-}
-
-.right {
-  padding-right: 10px;
-}
-
 .sideNav-mobile-container {
   margin-top: 50px;
   height: auto;
@@ -20,9 +12,38 @@
   background-color: aquamarine;
 }
 
+.brand-logo img {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  margin: 0 0 10px 10px;
+
+
+}
+
+.right {
+  padding-right: 10px;
+}
+
+
+
 
 .sidenav li a span {
   display: inline-block;
   padding-right: 10px;
 }
 
+@media(max-width:980px) {
+  .main {
+    width: 100%;
+    height: 20vh;
+  }
+
+  .brand-logo img {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    border-radius: 50px;
+
+  }
+}

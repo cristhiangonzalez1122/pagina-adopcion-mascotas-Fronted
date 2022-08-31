@@ -1,1 +1,14 @@
-<p>editar-departamento works!</p>
+<div class="container-create dpto-form">
+  <form [formGroup]="fgValidacion" class="row g-3 needs-validation" (ngSubmit)="ActualizarRegistro()" >
+    <input type="hidden" formControlName="id">
+    <div class="col-md-6 position-relative">
+      <label  for="validationTooltip01" class="active">Nombre Departamento</label>
+      <input formControlName="nombre" type="text" class="form-control" id="validationTooltip01" required>
+      <div class="invalid-tooltip">Please provide a valid depto.</div>
+    </div>
+    <div class="col-12">
+      <button [disabled]="!fgValidacion.valid" class="btn btn-primary" type="submit">Editar</button>
+    </div>
+  </form>
+  <a routerLink="/parametros/listar-departamento" type="button">Cancelar</a>
+</div>

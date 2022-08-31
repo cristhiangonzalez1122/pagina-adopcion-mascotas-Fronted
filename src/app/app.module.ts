@@ -19,7 +19,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     IndexComponent,
     Error404Component,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgxPaginationModule],
   providers: [],
   bootstrap: [AppComponent],
 })

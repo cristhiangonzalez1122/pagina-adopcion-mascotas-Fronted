@@ -25,13 +25,13 @@ export class CrearDepartamentoComponent implements OnInit {
     const nombre = this.fgValidador.controls['nombre'].value;
     const d = new ModeloDatosDepartamento();
     d.nombre = nombre;
-    this.serviceDepto.guardarRegistro(d).subscribe(
+    this.serviceDepto.GuardarRegistro(d).subscribe(
       (data: ModeloDatosDepartamento) => {
         alert('Creado con exito');
         this.router.navigate(['/parametros/listar-departamento']);
       },
       (error: any) => {
-        alert('Error creando el item solicitado');
+        alert('Error creando el item solicitado, No tienes los permisos necesarios para relizar esta acción' + error.message);
       }
   );
   }
