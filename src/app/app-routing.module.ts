@@ -30,6 +30,10 @@ const routes: Routes = [
     loadChildren: () => import('./modulos/usuario/usuario.module').then(u => u.UsuarioModule)
   },
   {
+    path: 'persona',
+    loadChildren: () => import('./modulos/persona/persona.module').then(u => u.PersonaModule)
+  },
+  {
     path: '404',
     component: Error404Component
   },

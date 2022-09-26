@@ -22,7 +22,7 @@
         <td>{{ d.nombre }}</td>
         <td>{{ d.departamento?.nombre }}</td>
         <td class="buttons-action">
-          <a routerLink="/parametros/editar-ciudad/{{ d.id }}" class="btn btn-secondary"><i class="small material-icons">edit</i></a>
+          <a routerLink="/parametros/editar-ciudad/{{ d.id }}" class="waves-effect waves-light  btn btn-secondary"><i class="small material-icons">edit</i></a>
           &nbsp;&nbsp;
           <button type="button" class="btn btn-danger"><a (click)="VerificarEliminacion(d.id)"><i class="small material-icons">delete</i></a></button>
         </td>
@@ -34,7 +34,10 @@
     screenReaderPaginationLabel="Pagination" screenReaderPageLabel="pagina">
   </pagination-controls>
   <div class="primary-button">
-    <a class="btn btn-primary" type="submit" routerLink="/parametros/crear-ciudad">Crear <span><i class="large material-icons">add_circle_outline</i></span></a>
+    <!-- <a class="waves-effect waves-light btn btn-primary" type="submit" routerLink="/parametros/crear-ciudad">Crear <span><i class="large material-icons">add_circle_outline</i></span></a> -->
+    <a routerLink="/parametros/crear-ciudad" class="waves-effect waves-circle waves-light btn-floating secondary-content">
+      <i class="material-icons">add</i>
+    </a>
   </div>
 </div>
 

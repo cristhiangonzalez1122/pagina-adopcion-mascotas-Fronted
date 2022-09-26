@@ -1,11 +1,11 @@
 <nav class="main">
   <div class="nav-wrapper green">
     <a href="/index" class="brand-logo"><img src="../../../../assets/images/pet.png" alt=""></a>
-    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="large material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li *ngIf="seInicioSesion"><a routerLink="/parametros/listar-departamento">Departamento</a></li>
       <li *ngIf="seInicioSesion"><a routerLink="/parametros/listar-ciudad">Ciudad</a></li>
-      <li *ngIf="seInicioSesion"><a routerLink="badges.html">Usuario</a></li>
+      <li *ngIf="seInicioSesion"><a routerLink="/persona/listar-persona">Persona</a></li>
       <li *ngIf="seInicioSesion"><a routerLink="collapsible.html">Solicitar Adopoción</a></li>
       <li *ngIf="!seInicioSesion"><a routerLink="seguridad/iniciar-sesion">Login</a></li>
       <li *ngIf="seInicioSesion"><a routerLink="seguridad/cerrarSesion">LogOut</a></li>
@@ -18,7 +18,7 @@
   <div class="sideNav-mobile-container">
     <li *ngIf="seInicioSesion"><a href="/parametros/listar-departamento">Departamento</a></li>
     <li *ngIf="seInicioSesion"><a href="/parametros/listar-ciudad">Ciudad</a></li>
-    <li *ngIf="seInicioSesion"><a href="badges.html">Usuario</a></li>
+    <li *ngIf="seInicioSesion"><a href="badges.html">Persona</a></li>
     <li *ngIf="seInicioSesion"><a href="collapsible.html">Solicitar Adopoción</a></li>
     <li *ngIf="!seInicioSesion"><a href="/seguridad/iniciar-sesion">Login</a></li>
     <li *ngIf="seInicioSesion"><a href="mobile.html">Sign Out</a></li>
@@ -26,3 +26,18 @@
 
 </ul>
 
+<!-- <ul id="mobile-demo" class="sidenav">
+  <li><div class="user-view">
+    <div class="background">
+      <img src="images/office.jpg">
+    </div>
+    <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+    <a href="#name"><span class="white-text name">John Doe</span></a>
+    <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+  </div></li>
+  <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+  <li><a href="#!">Second Link</a></li>
+  <li><div class="divider"></div></li>
+  <li><a class="subheader">Subheader</a></li>
+  <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+</ul> -->

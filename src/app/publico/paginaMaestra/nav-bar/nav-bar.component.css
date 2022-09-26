@@ -3,7 +3,10 @@
   min-width: 288px;
   max-width: 400px;
 }
-
+.sidenav-trigger i {
+  font-size: 3.2rem;
+  padding-top: 20px;
+}
 .sideNav-mobile-container {
   margin-top: 50px;
   height: auto;

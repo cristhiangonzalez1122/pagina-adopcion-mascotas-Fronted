@@ -10,6 +10,7 @@ import { IndexComponent } from './publico/index/index.component';
 import { Error404Component } from './publico/errors/error404/error404.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FooterComponent,
     IndexComponent,
     Error404Component,
+
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgxPaginationModule],
   providers: [],

@@ -51,7 +51,8 @@ const routes: Routes = [
     path: 'eliminar-ciudad',
     component: EliminarCiudadComponent,
     canActivate: [VerificadorSesionGuard]
-  }
+  },
+  //routing raza
 ];
 
 @NgModule({

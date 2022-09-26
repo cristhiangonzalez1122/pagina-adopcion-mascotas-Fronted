@@ -1,0 +1,54 @@
+<div class="table-container">
+  <div class="primary-button">
+    <a
+      class="btn btn-primary"
+      type="submit"
+      routerLink="/persona/crear-persona"
+      >Crear Persona</a
+    >
+  </div>
+  <input type="text" placeholder="insert" class="row 6" />
+  <button class="button search-button" type="submit">Buscar</button>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Documento</th>
+        <th>dirección</th>
+        <th>Teléfono</th>
+        <th>Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let p of listPerson
+            | paginate: { itemsPerPage: 4, currentPage: page }">
+        <td>{{ p.id }}</td>
+        <td>{{ p.nombres }}</td>
+        <td>{{ p.apellidos }}</td>
+        <td>{{ p.documento }}</td>
+        <td>{{ p.direccion }}</td>
+        <td>{{ p.telefono }}</td>
+        <td>
+          <a routerLink="/persona/editar-persona/{{ p.id }}" class="btn btn-primary"
+            >Editar</a
+          >
+          &nbsp;&nbsp;
+          <button type="button" class="btn btn-danger"><a (click)="VerificarEliminacion(p.id)">Eliminar</a></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<pagination-controls
+    (pageChange)="page = $event"
+    previousLabel="Anterior"
+    nextLabel="Siguiente"
+    screenReaderPaginationLabel="Pagination"
+    screenReaderPageLabel="pagina"
+  >
+  </pagination-controls>
+</div>
